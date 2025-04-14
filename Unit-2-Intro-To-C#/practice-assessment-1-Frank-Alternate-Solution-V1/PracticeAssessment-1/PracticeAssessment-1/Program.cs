@@ -66,18 +66,24 @@ class Program
     //     type name(what-it-accepts) - parameters: data-type name
     static bool IsTheSame(int num1, int num2)
     {
-        // If num1 is equal to num2, return true
-        //  if (num1 == num2) return true; // this works, but non-standard (non-professional)
-        if (num1 == num2)
-        {
-            // Industry standards expect the true processing to be inside { } 
-            return true;
-        }
-        else  // If num1 is not equal to num2, return false.
-        { // Industry standards expect the false processing to be inside { } 
-            return false; 
-        }
-        // return num1 == num2 // works too
+        // // If num1 is equal to num2, return true
+        // //  if (num1 == num2) return true; // this works, but non-standard (non-professional)
+        // if (num1 == num2)
+        // {
+        //     // Industry standards expect the true processing to be inside { } 
+        //     return true;
+        // }
+        // else  // If num1 is not equal to num2, return false.
+        // { // Industry standards expect the false processing to be inside { } 
+        //     return false; 
+        // }
+        // If a bool is being returned all you need is the conditional expression
+        // (Don't need to have an if-else - its OK if you do)
+        return num1 == num2; // works too
+        // 1. C# will evaluate the num1 == num2 - result is true or false
+        // 2. return the result from step1
+        //
+        // C# expressions always return  value that use however you need to
     } // End of IsTheSame()
     
     // Create a static method named Subtract() that takes in 2 parameters, all doubles: num1, num2.
@@ -100,22 +106,54 @@ class Program
     */
     static string FindBuildingType(int num1)
     {
-        if (num1 <= 3)
-        {
-            return "This is a house";
-        }
-        else if (num1 >=4 && num1 <= 10)
-        {
-            return "This is an office building!";
-        }
-        else if (num1 >=11 && num1 <= 49)
-        {
-            return "This is a skyscraper!";
-        }
+        // Solution using a switch statement
+        // a switch is alternative to a series of if-else statements
+        //
+        // case statement identifies the condition you want to check
+        //
+        // two formats of the case statement:
+        //
+        // 1. case value - when you want to check the switch variable equal the value
+        // 2. case datatype variable when condition - when you want to check for something other than equal
+        //                  th value in the switch variable is assigned to variable defined after case
 
-        // We KNOW if we get here the number has to be 50 or greater 
-        // We've handled all other situations alread
-        return "This is a SUPER skyscraper!";
+        switch (num1)  // check the value in num1
+        {
+            case int house when house <= 3:  // assign the value in num1 to new int house then check house <= 3
+            {
+                return "This is a house";
+            }
+            case int office when office >= 4 && office <= 10: // assign the value in num1 to new int office then check office
+            {
+                return "This is a office";
+            }
+            case int skyscraper when skyscraper >= 11 && skyscraper <= 49:
+            {
+                return "This is a skyscraper";
+            }
+            default: // if not of the cases are true do this
+            {
+                return "This is a SUPER skyscraper";
+            }
+        }
+        
+        
+        // if (num1 <= 3)
+        // {
+        //     return "This is a house";
+        // }
+        // else if (num1 >=4 && num1 <= 10)
+        // {
+        //     return "This is an office building!";
+        // }
+        // else if (num1 >=11 && num1 <= 49)
+        // {
+        //     return "This is a skyscraper!";
+        // }
+        //
+        // // We KNOW if we get here the number has to be 50 or greater 
+        // // We've handled all other situations alread
+        // return "This is a SUPER skyscraper!";
         
         // This return is required because C# doesn't know that we've handled all possible situations
         // so it wants a return in case we haven't
