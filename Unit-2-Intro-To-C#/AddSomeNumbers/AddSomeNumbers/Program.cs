@@ -9,6 +9,9 @@ class Program
         // Ask the user for 3 numbers one at a time
         // to produce a sum
         
+        
+        List<int> numbers = new List<int>();
+        
         // 1. Do this 3 times - A loop allows code to executed multiple times
         //      Ask user to enter a number
         //      Get the number from user
