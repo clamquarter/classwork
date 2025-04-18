@@ -15,22 +15,23 @@ Dictionary<string, decimal> menu = new Dictionary<string, decimal>() {
     {"raw honey", 8.90m},
 };
 
-Dictionary<string, decimal> cart = new Dictionary<string, decimal>(); //initialize shopping list dictionary
+Dictionary<string, decimal> cart = new Dictionary<string, decimal>(); //initialize, shopping list dictionary
 
+Dictionary<string, List<double>> gradeBook = new Dictionary<string, List<double>>();
 
-
-Console.WriteLine("Welcome to Doria Market!");
+Console.WriteLine("Welcome to Doria Mart!\n\n");
+Console.WriteLine("{0,-10} \t\t{1,5}", "Item", "Price");
+Console.WriteLine("==============================\n");
 
 //display menu items
 foreach (KeyValuePair<string, decimal> item in menu) //loop through all the items in the 'menu' dictionary
 {
-    Console.WriteLine(item.Key + "         $" + item.Value); //on running, space between item name and price is uneven
+    Console.WriteLine("{0,-10} \t\t${1,5}", item.Key, item.Value); //format the output to align the prices in a column
 }
-
 
 do
 {
-    Console.WriteLine("What would you like to order?"); //prompt the user to add an item to their order
+    Console.WriteLine("\nWhat would you like to order?"); //prompt the user to add an item to their order
 
     string userInput = Console.ReadLine().ToLower(); //take user input and convert it to lowercase for consistency
 
@@ -38,6 +39,7 @@ do
     if (menu.ContainsKey(userInput)) //if the 'menu' dictionary contains the item the user wants to order:
         {
             cart.Add(userInput, menu[userInput]);  //add the item to the 'cart' dictionary
+        Console.WriteLine("Adding " + userInput + " to your cart at $" + menu[userInput] + "."); //display a message confirming item was added to cart.
         } else
         {
             Console.WriteLine("Sorry, we don't have that item."); //if the item is not in the menu, display this message and the user will be prompted again.
@@ -66,16 +68,25 @@ do
     }
 } while (stillShopping);
 
-//display cart items
-Console.WriteLine("\n \n Cart \n");
-foreach (KeyValuePair<string, decimal> item in cart) //loop through all the items in the 'cart' dictionary
-{
-    Console.WriteLine(item.Key + "         $" + item.Value); //on running, space between item name and price is uneven
-}
-Console.WriteLine("Total: $" + cart.Values.Sum()); //calculate the total of cart items and display for the user
-; //display this message when the user is done shopping
+//sort the cart by price in descending order and create a new dictionary with the sorted items.
+Dictionary<string, decimal> descendingCart = (Dictionary<string, decimal>)cart.OrderByDescending(cart => cart.Value).ToDictionary();
 
-//sort the cart dictionary by value in descending order. use that to display the most expensive item
-//find the most expensive item in the user's cart using OrderByDescending on cart, then FirstOrDefault to get the first item in the sorted list. doesn't matter if the cart is initially empty.
-KeyValuePair<string, decimal> mostExpensiveItem = cart.OrderByDescending(cart => cart.Value).FirstOrDefault();
-Console.WriteLine("Your most expensive item was: " + mostExpensiveItem.Key);
+//sort the cart by price in ascending order and create a new dictionary with the sorted items.
+Dictionary<string, decimal> ascendingCart = (Dictionary<string, decimal>)cart.OrderBy(cart => cart.Value).ToDictionary();
+
+KeyValuePair<string, decimal> mostExpensiveItem = descendingCart.FirstOrDefault(); //get the first item in the descending/highest to lowest priced cart.
+
+KeyValuePair<string, decimal> cheapestItem = ascendingCart.FirstOrDefault(); //get the first item in the descending/lowest to highest priced cart.
+
+
+//display cart items
+Console.WriteLine("Thanks for shopping at Doria Mart!\n \nCart \n==============================\n");
+foreach (KeyValuePair<string, decimal> item in ascendingCart) //loop through all the items in the 'ascendingCart' dictionary to show cart in order from least to most expensive item.
+{
+    Console.WriteLine("{0,-10} \t\t${1,5}", item.Key, item.Value); //on running, space between item name and price is uneven
+}
+
+Console.WriteLine("{0,-10} \t\t${1,5}", "Total: ", cart.Values.Sum()); //calculate the total of cart items and display for the user
+
+
+Console.WriteLine("\nYour most expensive item was: " + mostExpensiveItem.Key + " at $" + mostExpensiveItem.Value + ", while your cheapest item was: " + cheapestItem.Key + " at $" + cheapestItem.Value + "."); //display the cheapest and most expensive items' names.
