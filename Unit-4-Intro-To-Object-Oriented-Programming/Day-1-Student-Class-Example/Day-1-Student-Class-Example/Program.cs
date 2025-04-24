@@ -28,13 +28,15 @@ class Program
     scores.Add(80);
     
     List<int> scores2 = new List<int>();
-    scores.Add(100);
-    scores.Add(100);
-    scores.Add(100);
+    scores2.Add(100);
+    scores2.Add(100);
+    scores2.Add(100);
 
     // Instantiate a Student using the data we want to store in the Student object
     Student aStudent = new Student("Frank", scores);
     Student aStudent2 = new Student("Marquise", scores2);
+    Student india = new Student("India", new List<int> { 90, 82, 100});
+
     
     // Display the Student object we created
     // Console.WriteLine() does not now how to display an object of our class
@@ -45,7 +47,7 @@ class Program
     // object.method() <--- object oriented notations
     aStudent.ShowStudent();
     aStudent2.ShowStudent();
-    
+    india.ShowStudent();
     //Console.WriteLine(aStudent.studentName);
     }
 }

@@ -28,15 +28,16 @@ public class Student
     //
     // Note: The data is defined without an initial value
     //       Class data should be initialized in constructors
-    private string    studentName;
+    private string studentName;
     private List<int> testScores;
-    
+    private double averageScore;
+
     // Define methods for the class
-    
-    // One special methods for a class is called a constructor
-    // A constructor is responible for initializingthe data in a class
+
+    // One special methods for a class is called a constructor.
+    // A constructor is responible for initializing the data in a class
     // (data should never be uninitialized - the starting value needs to be known)
-    
+
     // a constructor method is special because:
     //
     //   1. it has no return type; not even void
@@ -44,27 +45,31 @@ public class Student
     //   3. it may or may not receive parameters (initializers)
     //      ( a constructor with no parameters is called a default constructor)
     //   4. Usually public 
-    
+
     // Define a constructor to initialize our data with values 
     //          specified by the user
 
     public Student(string name, List<int> scores)
     {
-        studentName = name;  // Set the class data to the data passed in from the user
+        studentName = name; // Set the class data to the data passed in from the user
         testScores = scores; // Set the class data to the data passed in from the user
+        averageScore = testScores.Average();
     }
-    
+
     // Provide a method to display our data
     // (Console.WriteLine() doesn't know how to do it)
     public void ShowStudent()
     {
         Console.WriteLine("Name: " + studentName);
         Console.WriteLine("Scores: ");
-
+        Console.WriteLine("Average Score: " + averageScore);
         foreach (int score in testScores)
         {
             Console.WriteLine(score);
         }
     }
-    
+
+   
+
 }
+
