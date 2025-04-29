@@ -8,13 +8,19 @@ class Program
     static void Main(string[] args)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Define a list to hold 5 numbers
         List<int> numbers = new List<int>(); 
 =======
+=======
+>>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
         // Define a List to hold the numbers
      // List<datatype> name = new List<datatype>();  // DON'T FORGET THE ()
         List<int> numbers = new List<int>();  // Empty List
      // int[] numbers = new int[3];  // numbers.Length=3; 2 is the largest allowable index
+<<<<<<< HEAD
+>>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
+=======
 >>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
 
         // Define a variable to hold the sum of the numbers
@@ -23,7 +29,11 @@ class Program
         Console.WriteLine("--- Starting program ---");
         
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Normally we process a list from beginning to end
+=======
+        // Normally we process a List from beginning to end
+>>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
 =======
         // Normally we process a List from beginning to end
 >>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
@@ -32,6 +42,7 @@ class Program
         // a for-loop will loop through a process counting as it does so
         // a for-loop is an excellent tool for processing an List from start to end
         //
+<<<<<<< HEAD
 <<<<<<< HEAD
         // standard syntax: for(i=0; i < arrayName.Count; i++)
         //
@@ -49,6 +60,10 @@ class Program
 =======
         // standard syntax: for(i=0; i < listName.Count; i++)
         //
+=======
+        // standard syntax: for(i=0; i < listName.Count; i++)
+        //
+>>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
         //  arrayName.Count represents the number of elements in the List
 
         //   index      loop as
@@ -64,12 +79,19 @@ class Program
             numbers.Add(int.Parse(Console.ReadLine()));     // get a string from keyboard
                                                             // convert it to an int
                                                             // store it in numbers List using .Add()
+<<<<<<< HEAD
+>>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
+=======
 >>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
         }
         
         // Verify the List received the numbers correctly
         // Go through the array one element at a time and display the element
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  //    for (int i=0; i < numbers.Length; i++) // i=0, 1, 2 
+>>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
 =======
   //    for (int i=0; i < numbers.Length; i++) // i=0, 1, 2 
 >>>>>>> 70dfdc3 (Instructor Push 04/16/2025 14:28:56)
