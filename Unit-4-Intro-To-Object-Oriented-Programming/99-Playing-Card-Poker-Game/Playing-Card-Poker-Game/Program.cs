@@ -9,7 +9,7 @@ public class Program
     {
 	    // Run TestPokerHands Test Class
 	    TestPokerHands aPokerHandsTest = new TestPokerHands();
-	    //aPokerHandsTest.run();   // Verify hand is ranked correctly ass a Poker hand
+	    aPokerHandsTest.run();   // Verify hand is ranked correctly ass a Poker hand
 	    
 	    // Run TryAllPokerHand Test Class
 	    TryAllPokerHands aPokerHandsTryAll = new TryAllPokerHands();  // Run multiple hands through verification
@@ -17,7 +17,7 @@ public class Program
 	    
 	    // Run a Poker Game
 	    PokerGame aGame = new PokerGame();
-	    //aGame.run();   // Start of a Poker Game simulation
+	    aGame.run();   // Start of a Poker Game simulation
 
 
     }
