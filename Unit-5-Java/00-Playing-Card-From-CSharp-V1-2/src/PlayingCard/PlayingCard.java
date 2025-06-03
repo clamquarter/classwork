@@ -11,7 +11,7 @@ public class PlayingCard
      * static so it can be referenced using the class name. i.e. no object required
      *
      * enum - define a set of constant values that may be referenced as a data type
-     *        allows the assign of a word to a constant value to limit the values in a variable
+     *        allows the assignment of a word to a constant value to limit the values in a variable
      *        make it easier to code (get rid using "magic" numbers to represent data
      *        used as data-types - define variable as enums, parameters as enum - anywhere a variable is allowed
      *        C# will ensure that an enum type only has values valid for the enum (we don't have to check)
